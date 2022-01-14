@@ -18,7 +18,7 @@ namespace Project1 {
 		}
 
 	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ txtDisplay;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Button^ button5;
@@ -30,7 +30,6 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^ button11;
 	private: System::Windows::Forms::Button^ button12;
 	private: System::Windows::Forms::Button^ button13;
-
 	private: System::Windows::Forms::Button^ button16;
 	private: System::Windows::Forms::Button^ button17;
 	private: System::Windows::Forms::Button^ button18;
@@ -44,12 +43,10 @@ namespace Project1 {
 	protected:
 
 	private:
-
-
 		void InitializeComponent(void) {
 			this->components = (gcnew System::ComponentModel::Container());
 			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->txtDisplay = (gcnew System::Windows::Forms::TextBox());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
@@ -70,7 +67,6 @@ namespace Project1 {
 			this->button22 = (gcnew System::Windows::Forms::Button());
 			this->button23 = (gcnew System::Windows::Forms::Button());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
-
 			this->SuspendLayout();
 			// 
 			// button2
@@ -82,18 +78,18 @@ namespace Project1 {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 76);
 			this->button2->TabIndex = 1;
-			this->button2->Text = L"1";
+			this->button2->Text = L"<=";
 			this->button2->UseVisualStyleBackColor = false;
-			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
-			// textBox1
+			// txtDisplay
 			// 
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 34, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->txtDisplay->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 34, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox1->Location = System::Drawing::Point(12, 12);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(318, 59);
-			this->textBox1->TabIndex = 2;
+			this->txtDisplay->Location = System::Drawing::Point(12, 12);
+			this->txtDisplay->Name = L"txtDisplay";
+			this->txtDisplay->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
+			this->txtDisplay->Size = System::Drawing::Size(318, 59);
+			this->txtDisplay->TabIndex = 2;
 			// 
 			// button3
 			// 
@@ -104,7 +100,7 @@ namespace Project1 {
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(75, 76);
 			this->button3->TabIndex = 3;
-			this->button3->Text = L"1";
+			this->button3->Text = L"C";
 			this->button3->UseVisualStyleBackColor = false;
 			// 
 			// button4
@@ -116,7 +112,7 @@ namespace Project1 {
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(75, 76);
 			this->button4->TabIndex = 4;
-			this->button4->Text = L"1";
+			this->button4->Text = L"CE";
 			this->button4->UseVisualStyleBackColor = false;
 			// 
 			// button5
@@ -128,8 +124,9 @@ namespace Project1 {
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(75, 76);
 			this->button5->TabIndex = 5;
-			this->button5->Text = L"1";
+			this->button5->Text = L"8";
 			this->button5->UseVisualStyleBackColor = false;
+			this->button5->Click += gcnew System::EventHandler(this, &MyForm::NumbersOnly);
 			// 
 			// button6
 			// 
@@ -140,7 +137,7 @@ namespace Project1 {
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(75, 76);
 			this->button6->TabIndex = 6;
-			this->button6->Text = L"1";
+			this->button6->Text = L"+/-";
 			this->button6->UseVisualStyleBackColor = false;
 			// 
 			// button7
@@ -152,8 +149,9 @@ namespace Project1 {
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(75, 76);
 			this->button7->TabIndex = 7;
-			this->button7->Text = L"1";
+			this->button7->Text = L"7";
 			this->button7->UseVisualStyleBackColor = false;
+			this->button7->Click += gcnew System::EventHandler(this, &MyForm::NumbersOnly);
 			// 
 			// button8
 			// 
@@ -164,8 +162,9 @@ namespace Project1 {
 			this->button8->Name = L"button8";
 			this->button8->Size = System::Drawing::Size(75, 76);
 			this->button8->TabIndex = 8;
-			this->button8->Text = L"1";
+			this->button8->Text = L"9";
 			this->button8->UseVisualStyleBackColor = false;
+			this->button8->Click += gcnew System::EventHandler(this, &MyForm::NumbersOnly);
 			// 
 			// button9
 			// 
@@ -176,7 +175,7 @@ namespace Project1 {
 			this->button9->Name = L"button9";
 			this->button9->Size = System::Drawing::Size(75, 76);
 			this->button9->TabIndex = 9;
-			this->button9->Text = L"1";
+			this->button9->Text = L"+";
 			this->button9->UseVisualStyleBackColor = false;
 			// 
 			// button10
@@ -188,8 +187,9 @@ namespace Project1 {
 			this->button10->Name = L"button10";
 			this->button10->Size = System::Drawing::Size(75, 76);
 			this->button10->TabIndex = 10;
-			this->button10->Text = L"1";
+			this->button10->Text = L"4";
 			this->button10->UseVisualStyleBackColor = false;
+			this->button10->Click += gcnew System::EventHandler(this, &MyForm::NumbersOnly);
 			// 
 			// button11
 			// 
@@ -200,7 +200,7 @@ namespace Project1 {
 			this->button11->Name = L"button11";
 			this->button11->Size = System::Drawing::Size(75, 76);
 			this->button11->TabIndex = 11;
-			this->button11->Text = L"1";
+			this->button11->Text = L"-";
 			this->button11->UseVisualStyleBackColor = false;
 			// 
 			// button12
@@ -212,8 +212,9 @@ namespace Project1 {
 			this->button12->Name = L"button12";
 			this->button12->Size = System::Drawing::Size(75, 76);
 			this->button12->TabIndex = 12;
-			this->button12->Text = L"1";
+			this->button12->Text = L"6";
 			this->button12->UseVisualStyleBackColor = false;
+			this->button12->Click += gcnew System::EventHandler(this, &MyForm::NumbersOnly);
 			// 
 			// button13
 			// 
@@ -224,8 +225,9 @@ namespace Project1 {
 			this->button13->Name = L"button13";
 			this->button13->Size = System::Drawing::Size(75, 76);
 			this->button13->TabIndex = 13;
-			this->button13->Text = L"1";
+			this->button13->Text = L"5";
 			this->button13->UseVisualStyleBackColor = false;
+			this->button13->Click += gcnew System::EventHandler(this, &MyForm::NumbersOnly);
 			// 
 			// button16
 			// 
@@ -236,7 +238,7 @@ namespace Project1 {
 			this->button16->Name = L"button16";
 			this->button16->Size = System::Drawing::Size(75, 76);
 			this->button16->TabIndex = 17;
-			this->button16->Text = L"1";
+			this->button16->Text = L"/";
 			this->button16->UseVisualStyleBackColor = false;
 			// 
 			// button17
@@ -248,7 +250,7 @@ namespace Project1 {
 			this->button17->Name = L"button17";
 			this->button17->Size = System::Drawing::Size(75, 76);
 			this->button17->TabIndex = 18;
-			this->button17->Text = L"1";
+			this->button17->Text = L"=";
 			this->button17->UseVisualStyleBackColor = false;
 			// 
 			// button18
@@ -260,7 +262,7 @@ namespace Project1 {
 			this->button18->Name = L"button18";
 			this->button18->Size = System::Drawing::Size(75, 76);
 			this->button18->TabIndex = 19;
-			this->button18->Text = L"1";
+			this->button18->Text = L".";
 			this->button18->UseVisualStyleBackColor = false;
 			// 
 			// button19
@@ -272,8 +274,9 @@ namespace Project1 {
 			this->button19->Name = L"button19";
 			this->button19->Size = System::Drawing::Size(75, 76);
 			this->button19->TabIndex = 20;
-			this->button19->Text = L"1";
+			this->button19->Text = L"0";
 			this->button19->UseVisualStyleBackColor = false;
+			this->button19->Click += gcnew System::EventHandler(this, &MyForm::NumbersOnly);
 			// 
 			// button20
 			// 
@@ -284,7 +287,7 @@ namespace Project1 {
 			this->button20->Name = L"button20";
 			this->button20->Size = System::Drawing::Size(75, 76);
 			this->button20->TabIndex = 21;
-			this->button20->Text = L"1";
+			this->button20->Text = L"*";
 			this->button20->UseVisualStyleBackColor = false;
 			// 
 			// button21
@@ -296,8 +299,9 @@ namespace Project1 {
 			this->button21->Name = L"button21";
 			this->button21->Size = System::Drawing::Size(75, 76);
 			this->button21->TabIndex = 22;
-			this->button21->Text = L"1";
+			this->button21->Text = L"3";
 			this->button21->UseVisualStyleBackColor = false;
+			this->button21->Click += gcnew System::EventHandler(this, &MyForm::NumbersOnly);
 			// 
 			// button22
 			// 
@@ -308,8 +312,9 @@ namespace Project1 {
 			this->button22->Name = L"button22";
 			this->button22->Size = System::Drawing::Size(75, 76);
 			this->button22->TabIndex = 23;
-			this->button22->Text = L"1";
+			this->button22->Text = L"2";
 			this->button22->UseVisualStyleBackColor = false;
+			this->button22->Click += gcnew System::EventHandler(this, &MyForm::NumbersOnly);
 			// 
 			// button23
 			// 
@@ -322,13 +327,13 @@ namespace Project1 {
 			this->button23->TabIndex = 24;
 			this->button23->Text = L"1";
 			this->button23->UseVisualStyleBackColor = false;
-			// 
+			this->button23->Click += gcnew System::EventHandler(this, &MyForm::NumbersOnly);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(342, 717);
+			this->ClientSize = System::Drawing::Size(342, 509);
 			this->Controls->Add(this->button23);
 			this->Controls->Add(this->button22);
 			this->Controls->Add(this->button21);
@@ -348,20 +353,23 @@ namespace Project1 {
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->txtDisplay);
 			this->Controls->Add(this->button2);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::Fixed3D;
 			this->Name = L"MyForm";
 			this->SizeGripStyle = System::Windows::Forms::SizeGripStyle::Show;
 			this->Text = L"Calculator Example S.A.";
-			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
-	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
+		double firstNum, secondNum, answer;
+		String^ iop;
+
+		private: System::Void NumbersOnly(System::Object^ sender, System::EventArgs^ e) {
+			Button^ numb = safe_cast<Button^>(sender);
+			if(txtDisplay->Text == "0"){ txtDisplay->Text = numb->Text;
+			} else { txtDisplay->Text = txtDisplay->Text + numb->Text; }
+		}
 };
 }

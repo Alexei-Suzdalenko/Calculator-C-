@@ -87,9 +87,11 @@ namespace Project1 {
 				static_cast<System::Byte>(0)));
 			this->txtDisplay->Location = System::Drawing::Point(12, 12);
 			this->txtDisplay->Name = L"txtDisplay";
-			this->txtDisplay->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
+			this->txtDisplay->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->txtDisplay->Size = System::Drawing::Size(318, 59);
 			this->txtDisplay->TabIndex = 2;
+			this->txtDisplay->Text = L"0";
+			this->txtDisplay->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			// 
 			// button3
 			// 
@@ -102,6 +104,7 @@ namespace Project1 {
 			this->button3->TabIndex = 3;
 			this->button3->Text = L"C";
 			this->button3->UseVisualStyleBackColor = false;
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm::buttonClickC);
 			// 
 			// button4
 			// 
@@ -114,6 +117,7 @@ namespace Project1 {
 			this->button4->TabIndex = 4;
 			this->button4->Text = L"CE";
 			this->button4->UseVisualStyleBackColor = false;
+			this->button4->Click += gcnew System::EventHandler(this, &MyForm::buttonClickCE);
 			// 
 			// button5
 			// 
@@ -177,6 +181,7 @@ namespace Project1 {
 			this->button9->TabIndex = 9;
 			this->button9->Text = L"+";
 			this->button9->UseVisualStyleBackColor = false;
+			this->button9->Click += gcnew System::EventHandler(this, &MyForm::AritmeticOP);
 			// 
 			// button10
 			// 
@@ -202,6 +207,7 @@ namespace Project1 {
 			this->button11->TabIndex = 11;
 			this->button11->Text = L"-";
 			this->button11->UseVisualStyleBackColor = false;
+			this->button11->Click += gcnew System::EventHandler(this, &MyForm::AritmeticOP);
 			// 
 			// button12
 			// 
@@ -240,6 +246,7 @@ namespace Project1 {
 			this->button16->TabIndex = 17;
 			this->button16->Text = L"/";
 			this->button16->UseVisualStyleBackColor = false;
+			this->button16->Click += gcnew System::EventHandler(this, &MyForm::AritmeticOP);
 			// 
 			// button17
 			// 
@@ -264,6 +271,7 @@ namespace Project1 {
 			this->button18->TabIndex = 19;
 			this->button18->Text = L".";
 			this->button18->UseVisualStyleBackColor = false;
+			this->button18->Click += gcnew System::EventHandler(this, &MyForm::btnDotClick);
 			// 
 			// button19
 			// 
@@ -289,6 +297,7 @@ namespace Project1 {
 			this->button20->TabIndex = 21;
 			this->button20->Text = L"*";
 			this->button20->UseVisualStyleBackColor = false;
+			this->button20->Click += gcnew System::EventHandler(this, &MyForm::AritmeticOP);
 			// 
 			// button21
 			// 
@@ -364,12 +373,31 @@ namespace Project1 {
 
 		}
 		double firstNum, secondNum, answer;
-		String^ iop;
+		String^ charOp;
 
 		private: System::Void NumbersOnly(System::Object^ sender, System::EventArgs^ e) {
 			Button^ numb = safe_cast<Button^>(sender);
 			if(txtDisplay->Text == "0"){ txtDisplay->Text = numb->Text;
 			} else { txtDisplay->Text = txtDisplay->Text + numb->Text; }
+		}
+		private: System::Void AritmeticOP(System::Object^ sender, System::EventArgs^ e) {
+			Button^ aop = safe_cast<Button^>(sender);
+			firstNum = Double::Parse(txtDisplay->Text);
+			txtDisplay->Text = "";
+			charOp = aop->Text;
+
+		}
+		private: System::Void buttonClickC(System::Object^ sender, System::EventArgs^ e) {
+			txtDisplay->Text = "";
+		}
+		private: System::Void buttonClickCE(System::Object^ sender, System::EventArgs^ e) {
+			txtDisplay->Text = "";
+		}
+		private: System::Void btnDotClick(System::Object^ sender, System::EventArgs^ e) {
+			if (! txtDisplay->Text->Contains(".")) {
+				String^ dataString = txtDisplay->Text; dataString += ".";
+				txtDisplay->Text = dataString;
+			}
 		}
 };
 }

@@ -388,16 +388,16 @@ namespace Project1 {
 
 		}
 		private: System::Void buttonClickC(System::Object^ sender, System::EventArgs^ e) {
-			txtDisplay->Text = "";
+			txtDisplay->Text = "0";
 		}
 		private: System::Void buttonClickCE(System::Object^ sender, System::EventArgs^ e) {
-			txtDisplay->Text = "";
+			txtDisplay->Text = "0";
 		}
 		private: System::Void btnDotClick(System::Object^ sender, System::EventArgs^ e) {
-			if (! txtDisplay->Text->Contains(".")) {
-				String^ dataString = txtDisplay->Text; dataString += ".";
-				txtDisplay->Text = dataString;
-			}
+			if (! txtDisplay->Text->Contains(".")) { String^ dataString = txtDisplay->Text; dataString += "."; txtDisplay->Text = dataString; }
 		}
-};
+
+
+	};
+
 }
